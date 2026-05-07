@@ -1,0 +1,7 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:texture_set": {
+        "color": "lobby_ceiling_tile",
+        "metalness_emissive_roughness": "lobby_ceiling_tile_mer"
+    }
+}
