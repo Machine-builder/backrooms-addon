@@ -28,14 +28,14 @@ export class GeneratorLevel0 extends DimensionGenerator {
         { x: chunkOrigin.x, y: 0, z: chunkOrigin.y },
         { x: chunkOrigin.x + 16, y: 0, z: chunkOrigin.y + 16 },
       ),
-      "minecraft:yellow_wool",
+      "mbbr:lobby_old_carpet",
     );
     this.dimension.fillBlocks(
       new BlockVolume(
         { x: chunkOrigin.x, y: 5, z: chunkOrigin.y },
         { x: chunkOrigin.x + 16, y: 5, z: chunkOrigin.y + 16 },
       ),
-      "minecraft:stripped_birch_log",
+      "mbbr:lobby_ceiling_tile",
     );
 
     // Place ceiling lights
@@ -95,7 +95,7 @@ export class GeneratorLevel0 extends DimensionGenerator {
 
       this.dimension.fillBlocks(
         new BlockVolume(wallStart, wallEnd),
-        "minecraft:stripped_birch_log",
+        "mbbr:lobby_wallpaper",
       );
     }
   }
