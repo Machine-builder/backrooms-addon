@@ -6,7 +6,16 @@
     "mbbr:lobby_ceiling_tile": {
         "sound": "wood"
     },
+    "mbbr:lobby_ceiling_light": {
+        "sound": "glass"
+    },
     "mbbr:lobby_wallpaper": {
+        "sound": "wood"
+    },
+    "mbbr:lobby_wallpaper_spotted": {
+        "sound": "wood"
+    },
+    "mbbr:lobby_wallpaper_ornate": {
         "sound": "wood"
     }
 }

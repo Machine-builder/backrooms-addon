@@ -10,11 +10,17 @@
         "mbbr:lobby_ceiling_tile": {
             "textures": "textures/mbbr/blocks/deco/lobby_ceiling_tile"
         },
+        "mbbr:lobby_ceiling_light": {
+            "textures": "textures/mbbr/blocks/deco/lobby_ceiling_light"
+        },
         "mbbr:lobby_wallpaper": {
             "textures": "textures/mbbr/blocks/deco/lobby_wallpaper"
         },
-        "mbbr:lobby_wallpaper_baseboard": {
-            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper_base"
+        "mbbr:lobby_wallpaper_spotted": {
+            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper_spotted"
+        },
+        "mbbr:lobby_wallpaper_ornate": {
+            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper_ornate"
         }
     }
 }
