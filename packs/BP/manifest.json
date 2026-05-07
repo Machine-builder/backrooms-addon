@@ -1,0 +1,40 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Backrooms, by MACHINE_BUILDER",
+        "name": "Backrooms",
+        "uuid": "c7c4615c-7840-4b76-b4c0-980b30c0f8d8",
+        "pack_scope": "world",
+        "min_engine_version": [
+            1,
+            20,
+            90
+        ],
+        "version": [
+            1,
+            1,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "bf813ebd-f7f3-40f9-bc47-4617c10eb147",
+            "version": [
+                1,
+                1,
+                0
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "5c651b9f-4573-4090-963d-b8eb69b5fd4d",
+            "version": [
+                1,
+                1,
+                0
+            ]
+        }
+    ]
+}
