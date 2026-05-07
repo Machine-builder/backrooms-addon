@@ -1,3 +1,6 @@
-tile.mbbr:lobby_old_carpet=Old Carpet
-tile.mbbr:lobby_ceiling_tile=Ceiling Tiles
-tile.mbbr:lobby_wallpaper=Wallpaper
+tile.mbbr:lobby_old_carpet.name=Old Carpet
+tile.mbbr:lobby_ceiling_tile.name=Ceiling Tiles
+tile.mbbr:lobby_ceiling_light.name=Ceiling Light
+tile.mbbr:lobby_wallpaper.name=Wallpaper
+tile.mbbr:lobby_wallpaper_spotted.name=Spotted Wallpaper
+tile.mbbr:lobby_wallpaper_ornate.name=Ornate Wallpaper
