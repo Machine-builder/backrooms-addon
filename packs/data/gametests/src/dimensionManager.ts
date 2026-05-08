@@ -61,7 +61,7 @@ export class DimensionManager {
 
   teleport(player: Player) {
     player.teleport(
-      { x: 0, y: 0, z: 0 },
+      { x: 0, y: 1, z: 0 },
       { dimension: world.getDimension(this.typeId) },
     );
     this.ensureActive();

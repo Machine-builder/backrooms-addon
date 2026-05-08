@@ -38,4 +38,46 @@ system.beforeEvents.startup.subscribe((event) => {
       return { status: CustomCommandStatus.Success };
     },
   );
+
+  event.customCommandRegistry.registerCommand(
+    {
+      name: "mbbr:fog_add_level_0",
+      description: "Add level 0 fog",
+      permissionLevel: CommandPermissionLevel.Any,
+      cheatsRequired: false,
+    },
+    (origin: CustomCommandOrigin) => {
+      const player = origin.sourceEntity;
+      if (!player || !(player instanceof Player))
+        return {
+          status: CustomCommandStatus.Failure,
+          message: "Only players can use this command!",
+        };
+      system.run(() => {
+        player.runCommand(`fog @s push mbbr:fog_level_0 mbbr:fog_level_0`);
+      });
+      return { status: CustomCommandStatus.Success };
+    },
+  );
+
+  event.customCommandRegistry.registerCommand(
+    {
+      name: "mbbr:fog_remove_level_0",
+      description: "Remove level 0 fog",
+      permissionLevel: CommandPermissionLevel.Any,
+      cheatsRequired: false,
+    },
+    (origin: CustomCommandOrigin) => {
+      const player = origin.sourceEntity;
+      if (!player || !(player instanceof Player))
+        return {
+          status: CustomCommandStatus.Failure,
+          message: "Only players can use this command!",
+        };
+      system.run(() => {
+        player.runCommand(`fog @s remove mbbr:fog_level_0`);
+      });
+      return { status: CustomCommandStatus.Success };
+    },
+  );
 });
