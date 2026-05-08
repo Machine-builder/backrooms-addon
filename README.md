@@ -1,7 +1,7 @@
 # Backrooms
 Latest version: 0.0.1
 
-⚠ Requires experimental toggle `Beta APIs`
+⚠ Requires experimental toggle `Beta APIs` ⚠
 
 ## Features
 - Adds a custom backrooms level 0 dimension, which can be accessed using the `/mbbr:backrooms_level_0` command
