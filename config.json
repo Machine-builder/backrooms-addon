@@ -12,6 +12,10 @@
 			"gametests": {
 				"url": "github.com/Bedrock-OSS/regolith-filters",
 				"version": "1.7.4"
+			},
+			"packer": {
+				"url": "github.com/MCDevKit/regolith-library",
+				"version": "1.1.1"
 			}
 		},
 		"formatVersion": "1.7.0",
@@ -23,18 +27,84 @@
 					"target": "development"
 				},
 				"filters": [
-                    {
-                        "filter": "gametests",
-                        "settings": {
-                            "buildOptions": {
-                                "minify": false
-                            },
-                            "modules": [
-                                "@minecraft/server@2.8.0-beta"
-                            ],
-                            "outfile": "BP/scripts/main.js"
-                        }
-                    }
+					{
+						"profile": "scripts-dev"
+					}
+				]
+			},
+			"scripts-release": {
+                "export": {
+                    "readOnly": false,
+                    "target": "local"
+                },
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"minify": true
+							},
+							"modules": [
+								"@minecraft/server@2.8.0-beta"
+							],
+							"outfile": "BP/scripts/main.js"
+						}
+					}
+				]
+			},
+			"scripts-dev": {
+                "export": {
+                    "readOnly": false,
+                    "target": "local"
+                },
+				"filters": [
+					{
+						"filter": "gametests",
+						"settings": {
+							"buildOptions": {
+								"minify": false
+							},
+							"debugBuild": true,
+							"modules": [
+								"@minecraft/server@2.8.0-beta"
+							],
+							"outfile": "BP/scripts/main.js"
+						}
+					}
+				]
+			},
+			"build-release": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"profile": "scripts-release"
+					},
+					{
+						"filter": "packer",
+						"settings": {
+							"output": "Backrooms_${git.tag ?? 'notag'}.mcaddon"
+						}
+					}
+				]
+			},
+			"build-dev": {
+				"export": {
+					"readOnly": false,
+					"target": "local"
+				},
+				"filters": [
+					{
+						"profile": "scripts-dev"
+					},
+					{
+						"filter": "packer",
+						"settings": {
+							"output": "Backrooms_${git.tag ?? 'notag'}_dev.mcaddon"
+						}
+					}
 				]
 			}
 		}
