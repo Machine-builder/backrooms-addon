@@ -2,6 +2,7 @@ import { Logger } from "@bedrock-oss/bedrock-boost";
 import { DimensionManager } from "../dimensionManager";
 import { Dimension, Player, Vector2 } from "@minecraft/server";
 import { ChunkSplit } from "../worldgen/chunks";
+import { distManhattan2d } from "../math";
 
 const log = Logger.getLogger("DimensionGenerator");
 
@@ -53,6 +54,7 @@ export class DimensionGenerator {
         y: Math.floor(playerLocation.z / 16),
       };
       const generateDistance = 4;
+      let chunksAroundPlayer: Vector2[] = [];
       for (let x = -generateDistance; x < generateDistance + 1; x++) {
         for (let z = -generateDistance; z < generateDistance + 1; z++) {
           if (
@@ -61,13 +63,15 @@ export class DimensionGenerator {
               chunkLocation.y + z,
             )
           ) {
-            this.generateChunksQueue.push({
+            chunksAroundPlayer.push({
               x: chunkLocation.x + x,
-              y: chunkLocation.y + z,
+              y: chunkLocation.y + z
             });
           }
         }
       }
+      // Add them to the queue sorted
+      this.generateChunksQueue.push(...chunksAroundPlayer.sort((a, b) => distManhattan2d(chunkLocation, a) - distManhattan2d(chunkLocation, b)));
     }
 
     // Process chunk generation queue

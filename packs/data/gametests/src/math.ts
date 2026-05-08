@@ -1,9 +1,15 @@
+import { Vector2 } from "@minecraft/server";
+
 export function mod(a: number, b: number): number {
     return ((a % b) + b) % b;
 };
 
 export function randomInteger(a: number, b: number) {
     return a + Math.floor(Math.random()*(b-a));
+}
+
+export function distManhattan2d(a: Vector2, b: Vector2) {
+    return Math.abs(a.x-b.x) + Math.abs(a.y-b.y);
 }
 
 export function mapRange(n: number, from_min: number, from_max: number, to_min: number, to_max: number): number {
