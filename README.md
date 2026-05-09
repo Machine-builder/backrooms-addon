@@ -1,6 +1,6 @@
 ![Backrooms Addon](https://raw.githubusercontent.com/Machine-builder/backrooms-addon/refs/heads/main/meta/banner.png)
 
-Latest version: 0.0.1
+Grab the latest version from the [Releases Page](https://github.com/Machine-builder/backrooms-addon/releases)
 
 ⚠ Requires experimental toggle `Beta APIs` ⚠
 
