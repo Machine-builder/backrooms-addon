@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  build-release:
+  build:
     name: Build Release
     runs-on: ubuntu-latest
 
@@ -32,3 +32,37 @@ jobs:
         with:
           files: "*.mcaddon"
           generate_release_notes: true
+
+  discord:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord notification
+        env:
+          WEBHOOK_URL: ${{ secrets.BACKROOMS_DEV_FEED }}
+          VERSION: ${{ needs.build.outputs.version }}
+          RELEASE_URL: https://github.com/${{ github.repository }}/releases/tag/${{ needs.build.outputs.version }}
+          DOWNLOAD_URL: https://github.com/${{ github.repository }}/releases/download/${{ needs.build.outputs.version }}/Backrooms_${{ needs.build.outputs.version }}.mcaddon
+        run: |
+          payload=$(cat <<EOF
+          {
+            "username": "Backrooms",
+            "avatar_url": "https://raw.githubusercontent.com/Machine-builder/backrooms-addon/refs/heads/main/packs/BP/pack_icon.png",
+            "embeds": [
+              {
+                "title": "Backrooms ${VERSION}",
+                "description": "${VERSION} is now available!\n\n[View Release](${RELEASE_URL})\n[Download .mcaddon](${DOWNLOAD_URL})",
+                "color": 11637263,
+                "url": "${RELEASE_URL}"
+              }
+            ]
+          }
+          EOF
+          )
+
+          curl \
+            -H "Content-Type: application/json" \
+            -X POST \
+            -d "$payload" \
+            "$WEBHOOK_URL"
