@@ -11,10 +11,31 @@ jobs:
 
     steps:
       - name: Send Discord notification
+        env:
+          WEBHOOK_URL: ${{ secrets.BACKROOMS_DEV_FEED }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+          ASSET_URL: ${{ github.event.release.assets[0].browser_download_url }}
         run: |
-          curl -H "Content-Type: application/json" \
-          -X POST \
-          -d '{
-            "content": "**New Release Published**\n${{ github.event.release.name }}\n${{ github.event.release.html_url }}"
-          }' \
-          ${{ secrets.BACKROOMS_DEV_FEED }}
+          payload=$(cat <<EOF
+          {
+            "username": "Backrooms",
+            "avatar_url": "https://raw.githubusercontent.com/Machine-builder/backrooms-addon/refs/heads/main/packs/BP/pack_icon.png",
+            "embeds": [
+              {
+                "title": "Backrooms ${RELEASE_TAG}",
+                "description": "${RELEASE_TAG} is now available!\n\n[View Release](${RELEASE_URL})\n[Download .mcaddon](${ASSET_URL})",
+                "color": 11637263,
+                "url": "${RELEASE_URL}"
+              }
+            ]
+          }
+          EOF
+          )
+
+          curl \
+            -H "Content-Type: application/json" \
+            -X POST \
+            -d "$payload" \
+            "$WEBHOOK_URL"
