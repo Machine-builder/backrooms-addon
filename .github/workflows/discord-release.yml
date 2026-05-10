@@ -1,0 +1,19 @@
+name: Discord Release Notify
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Discord notification
+        run: |
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d '{
+            "content": "**New Release Published**\n${{ github.event.release.name }}\n${{ github.event.release.html_url }}"
+          }' \
+          ${{ secrets.BACKROOMS_DEV_FEED }}
