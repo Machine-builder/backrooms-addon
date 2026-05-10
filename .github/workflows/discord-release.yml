@@ -2,8 +2,9 @@ name: Discord Release Notify
 
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   notify:
@@ -13,10 +14,9 @@ jobs:
       - name: Send Discord notification
         env:
           WEBHOOK_URL: ${{ secrets.BACKROOMS_DEV_FEED }}
-          RELEASE_NAME: ${{ github.event.release.name }}
-          RELEASE_TAG: ${{ github.event.release.tag_name }}
-          RELEASE_URL: ${{ github.event.release.html_url }}
-          ASSET_URL: ${{ github.event.release.assets[0].browser_download_url }}
+          VERSION: ${{ github.ref_name }}
+          RELEASE_URL: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}
+          DOWNLOAD_URL: https://github.com/${{ github.repository }}/releases/download/${{ github.ref_name }}/Backrooms_${{ github.ref_name }}.mcaddon
         run: |
           payload=$(cat <<EOF
           {
@@ -24,8 +24,8 @@ jobs:
             "avatar_url": "https://raw.githubusercontent.com/Machine-builder/backrooms-addon/refs/heads/main/packs/BP/pack_icon.png",
             "embeds": [
               {
-                "title": "Backrooms ${RELEASE_TAG}",
-                "description": "${RELEASE_TAG} is now available!\n\n[View Release](${RELEASE_URL})\n[Download .mcaddon](${ASSET_URL})",
+                "title": "Backrooms ${VERSION}",
+                "description": "${VERSION} is now available!\n\n[View Release](${RELEASE_URL})\n[Download .mcaddon](${DOWNLOAD_URL})",
                 "color": 11637263,
                 "url": "${RELEASE_URL}"
               }
