@@ -1,112 +1,125 @@
 {
-	"$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.7.json",
-	"author": "MACHINE_BUILDER",
-	"name": "Backrooms_mb",
-	"packs": {
-		"behaviorPack": "./packs/BP",
-		"resourcePack": "./packs/RP"
-	},
-	"regolith": {
-		"dataPath": "./packs/data",
-		"filterDefinitions": {
-			"gametests": {
-				"url": "github.com/Bedrock-OSS/regolith-filters",
-				"version": "1.7.4"
-			},
-			"packer": {
-				"url": "github.com/MCDevKit/regolith-library",
-				"version": "1.1.1"
-			}
-		},
-		"formatVersion": "1.7.0",
-		"profiles": {
-			"default": {
-				"export": {
-					"build": "standard",
-					"readOnly": false,
-					"target": "development"
-				},
-				"filters": [
-					{
-						"profile": "scripts-dev"
-					}
-				]
-			},
-			"scripts-release": {
-                "export": {
-                    "readOnly": false,
-                    "target": "local"
-                },
-				"filters": [
-					{
-						"filter": "gametests",
-						"settings": {
-							"buildOptions": {
-								"minify": true
-							},
-							"modules": [
-								"@minecraft/server@2.8.0-beta"
-							],
-							"outfile": "BP/scripts/main.js"
-						}
-					}
-				]
-			},
-			"scripts-dev": {
-                "export": {
-                    "readOnly": false,
-                    "target": "local"
-                },
-				"filters": [
-					{
-						"filter": "gametests",
-						"settings": {
-							"buildOptions": {
-								"minify": false
-							},
-							"debugBuild": true,
-							"modules": [
-								"@minecraft/server@2.8.0-beta"
-							],
-							"outfile": "BP/scripts/main.js"
-						}
-					}
-				]
-			},
-			"build-release": {
-				"export": {
-					"readOnly": false,
-					"target": "local"
-				},
-				"filters": [
-					{
-						"profile": "scripts-release"
-					},
-					{
-						"filter": "packer",
-						"settings": {
-							"output": "Backrooms_${git.tag ?? 'notag'}.mcaddon"
-						}
-					}
-				]
-			},
-			"build-dev": {
-				"export": {
-					"readOnly": false,
-					"target": "local"
-				},
-				"filters": [
-					{
-						"profile": "scripts-dev"
-					},
-					{
-						"filter": "packer",
-						"settings": {
-							"output": "Backrooms_${git.tag ?? 'notag'}_dev.mcaddon"
-						}
-					}
-				]
-			}
-		}
-	}
+  "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.7.json",
+  "author": "MACHINE_BUILDER",
+  "name": "Backrooms_mb",
+  "packs": {
+    "behaviorPack": "./packs/BP",
+    "resourcePack": "./packs/RP"
+  },
+  "regolith": {
+    "dataPath": "./packs/data",
+    "filterDefinitions": {
+      "gametests": {
+        "url": "github.com/Bedrock-OSS/regolith-filters",
+        "version": "1.7.4"
+      },
+      "packer": {
+        "url": "github.com/MCDevKit/regolith-library",
+        "version": "1.1.1"
+      },
+      "texture_sheet": {
+        "requirements": "./filters/texture_sheet/requirements.txt",
+        "runWith": "python",
+        "script": "./filters/texture_sheet/main.py"
+      }
+    },
+    "formatVersion": "1.7.0",
+    "profiles": {
+      "make-textures": {
+        "export": {
+          "build": "standard",
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "filter": "texture_sheet"
+          }
+        ]
+      },
+      "default": {
+        "export": {
+          "build": "standard",
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          {
+            "profile": "scripts-dev"
+          }
+        ]
+      },
+      "scripts-release": {
+        "export": {
+          "readOnly": false,
+          "target": "local"
+        },
+        "filters": [
+          {
+            "filter": "gametests",
+            "settings": {
+              "buildOptions": {
+                "minify": true
+              },
+              "modules": ["@minecraft/server@2.8.0-beta"],
+              "outfile": "BP/scripts/main.js"
+            }
+          }
+        ]
+      },
+      "scripts-dev": {
+        "export": {
+          "readOnly": false,
+          "target": "local"
+        },
+        "filters": [
+          {
+            "filter": "gametests",
+            "settings": {
+              "buildOptions": {
+                "minify": false
+              },
+              "debugBuild": true,
+              "modules": ["@minecraft/server@2.8.0-beta"],
+              "outfile": "BP/scripts/main.js"
+            }
+          }
+        ]
+      },
+      "build-release": {
+        "export": {
+          "readOnly": false,
+          "target": "local"
+        },
+        "filters": [
+          {
+            "profile": "scripts-release"
+          },
+          {
+            "filter": "packer",
+            "settings": {
+              "output": "Backrooms_${git.tag ?? 'notag'}.mcaddon"
+            }
+          }
+        ]
+      },
+      "build-dev": {
+        "export": {
+          "readOnly": false,
+          "target": "local"
+        },
+        "filters": [
+          {
+            "profile": "scripts-dev"
+          },
+          {
+            "filter": "packer",
+            "settings": {
+              "output": "Backrooms_${git.tag ?? 'notag'}_dev.mcaddon"
+            }
+          }
+        ]
+      }
+    }
+  }
 }

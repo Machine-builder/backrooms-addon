@@ -1,0 +1,19 @@
+{
+  "sheets": [
+    {
+      "filepath": "assets/textures.pdn",
+      "sub_textures": [
+        {
+          "bounding_box": [20, 1, 16, 16],
+          "save_as": "packs/rp/textures/mbbr/blocks/deco/lobby_ceiling_light.png",
+          "use_layers": ["Albedo"]
+        },
+        {
+          "bounding_box": [20, 1, 16, 16],
+          "save_as": "packs/rp/textures/mbbr/blocks/deco/lobby_ceiling_light_mer.png",
+          "use_layers": ["Mers"]
+        }
+      ]
+    }
+  ]
+}
