@@ -21,6 +21,10 @@
         "requirements": "./filters/texture_sheet/requirements.txt",
         "runWith": "python",
         "script": "./filters/texture_sheet/main.py"
+      },
+      "auto_pbr": {
+        "runWith": "python",
+        "script": "./filters/auto_pbr/main.py"
       }
     },
     "formatVersion": "1.7.0",
@@ -37,6 +41,18 @@
           }
         ]
       },
+      "common": {
+        "export": {
+          "build": "standard",
+          "readOnly": false,
+          "target": "development"
+        },
+        "filters": [
+          // {
+          //   "filter": "auto_pbr"
+          // }
+        ]
+      },
       "default": {
         "export": {
           "build": "standard",
@@ -44,6 +60,9 @@
           "target": "development"
         },
         "filters": [
+          {
+            "profile": "common"
+          },
           {
             "profile": "scripts-dev"
           }
@@ -93,6 +112,9 @@
         },
         "filters": [
           {
+            "profile": "common"
+          },
+          {
             "profile": "scripts-release"
           },
           {
@@ -109,6 +131,9 @@
           "target": "local"
         },
         "filters": [
+          {
+            "profile": "common"
+          },
           {
             "profile": "scripts-dev"
           },
