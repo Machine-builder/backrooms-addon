@@ -48,9 +48,6 @@
           "target": "development"
         },
         "filters": [
-          // {
-          //   "filter": "auto_pbr"
-          // }
         ]
       },
       "default": {
