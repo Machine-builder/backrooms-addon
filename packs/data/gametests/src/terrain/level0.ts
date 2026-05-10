@@ -16,8 +16,8 @@ export class GeneratorLevel0 extends DimensionGenerator {
 
     const worldSeed = parseInt(world.seed);
     this.noiseWallpaper = new Noise2d(worldSeed + 57, 0.005);
-    this.noiseTightness = new Noise2d(worldSeed + 98, 0.005);
-    this.noiseDarkness = new Noise2d(worldSeed + 123, 0.005);
+    this.noiseTightness = new Noise2d(worldSeed + 1372, 0.005);
+    this.noiseDarkness = new Noise2d(worldSeed + 3326, 0.005);
   }
 
   generateChunk(chunkLocation: Vector2) {
