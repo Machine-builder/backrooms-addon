@@ -33,6 +33,14 @@
             {
               "use_layers": ["Mer"],
               "suffix": "_mer"
+            },
+            {
+              "use_layers": ["Albedo", "Overlay Albedo"],
+              "suffix": "_baseboard"
+            },
+            {
+              "use_layers": ["Mer", "Overlay Mer"],
+              "suffix": "_baseboard_mer"
             }
           ]
         },
@@ -44,6 +52,14 @@
             {
               "use_layers": ["Mer"],
               "suffix": "_mer"
+            },
+            {
+              "use_layers": ["Albedo", "Overlay Albedo"],
+              "suffix": "_baseboard"
+            },
+            {
+              "use_layers": ["Mer", "Overlay Mer"],
+              "suffix": "_baseboard_mer"
             }
           ]
         },
@@ -55,6 +71,14 @@
             {
               "use_layers": ["Mer"],
               "suffix": "_mer"
+            },
+            {
+              "use_layers": ["Albedo", "Overlay Albedo"],
+              "suffix": "_baseboard"
+            },
+            {
+              "use_layers": ["Mer", "Overlay Mer"],
+              "suffix": "_baseboard_mer"
             }
           ]
         },
