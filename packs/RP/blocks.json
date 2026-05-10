@@ -1,7 +1,13 @@
 {
     "format_version": "1.21.40",
     "mbbr:lobby_old_carpet": {
-        "sound": "cloth"
+        "sound": "cloth",
+        "textures": {
+            "up": "mbbr:lobby_old_carpet",
+            "side": "mbbr:lobby_old_carpet",
+            "down": "mbbr:lobby_old_carpet"
+        },
+        "isotropic": true
     },
     "mbbr:lobby_ceiling_tile": {
         "sound": "wood"
