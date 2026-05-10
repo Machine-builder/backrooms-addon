@@ -21,15 +21,34 @@ def process(data: data_validation.DataFile):
     for sheet in data.sheets:
         image_filepath = dir_project / sheet.filepath
         image_pdn = pypdn.read(image_filepath)
+
+        print(image_filepath)
         
         layers_by_name = {layer.name: layer for layer in image_pdn.layers}
 
+        sub_textures: List[data_validation.SubTexture] = sheet.sub_textures.copy()
+        for sub_texture in sub_textures:
+            if sub_texture.mutations:
+                filename, extension = sub_texture.save_as.rsplit('.', 1)
+                for mutation in sub_texture.mutations:
+                    new_sub_texture = data_validation.SubTexture(
+                        bounding_box=sub_texture.bounding_box,
+                        save_as=filename+mutation.suffix+'.'+extension,
+                        use_layers=mutation.use_layers,
+                        mutations=None
+                    )
+                    sub_textures.append(new_sub_texture)
+
         # Group sub_textures by the use_layers attributes
         groups: Dict[str, List[data_validation.SubTexture]] = {}
-        for sub_texture in sheet.sub_textures:
+        for sub_texture in sub_textures:
             layers_id = ','.join(sorted(sub_texture.use_layers))
             group = groups.setdefault(layers_id, [])
             group.append(sub_texture)
+
+        print(f'Combined {len(sub_textures)} sub texture(s) into {len(groups)} group(s)')
+
+        count = 0
 
         for group in groups.values():
             use_layers = group[0].use_layers
@@ -56,10 +75,12 @@ def process(data: data_validation.DataFile):
                 lower = upper + h
                 image_cropped = img.crop((left, upper, right, lower),)
                 
-                save_as_absolute = dir_project / save_as
+                save_as_absolute = dir_rp / save_as
                 image_cropped.save(save_as_absolute)
 
-                print(f'Cropped and saved "{save_as}"')
+                count += 1
+
+        print(f'Cropped and saved {count} image(s)')
 
 def main():
     """

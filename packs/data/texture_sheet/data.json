@@ -4,14 +4,70 @@
       "filepath": "assets/textures.pdn",
       "sub_textures": [
         {
-          "bounding_box": [20, 1, 16, 16],
-          "save_as": "packs/rp/textures/mbbr/blocks/deco/lobby_ceiling_light.png",
-          "use_layers": ["Albedo"]
+          "bounding_box": [8, 16, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/ceiling_tile.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
         },
         {
-          "bounding_box": [20, 1, 16, 16],
-          "save_as": "packs/rp/textures/mbbr/blocks/deco/lobby_ceiling_light_mer.png",
-          "use_layers": ["Mers"]
+          "bounding_box": [27, 16, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/ceiling_light.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
+        },
+        {
+          "bounding_box": [44, 33, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/wallpaper.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
+        },
+        {
+          "bounding_box": [61, 33, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/wallpaper_spotted.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
+        },
+        {
+          "bounding_box": [78, 33, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/wallpaper_ornate.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
+        },
+        {
+          "bounding_box": [59, 83, 16, 16],
+          "save_as": "textures/mbbr/blocks/deco/lobby/old_carpet.png",
+          "use_layers": ["Albedo"],
+          "mutations": [
+            {
+              "use_layers": ["Mer"],
+              "suffix": "_mer"
+            }
+          ]
         }
       ]
     }

@@ -5,22 +5,22 @@
     "num_mip_levels": 4,
     "texture_data": {
         "mbbr:lobby_old_carpet": {
-            "textures": "textures/mbbr/blocks/deco/lobby_old_carpet"
+            "textures": "textures/mbbr/blocks/deco/lobby/old_carpet"
         },
         "mbbr:lobby_ceiling_tile": {
-            "textures": "textures/mbbr/blocks/deco/lobby_ceiling_tile"
+            "textures": "textures/mbbr/blocks/deco/lobby/ceiling_tile"
         },
         "mbbr:lobby_ceiling_light": {
-            "textures": "textures/mbbr/blocks/deco/lobby_ceiling_light"
+            "textures": "textures/mbbr/blocks/deco/lobby/ceiling_light"
         },
         "mbbr:lobby_wallpaper": {
-            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper"
+            "textures": "textures/mbbr/blocks/deco/lobby/wallpaper"
         },
         "mbbr:lobby_wallpaper_spotted": {
-            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper_spotted"
+            "textures": "textures/mbbr/blocks/deco/lobby/wallpaper_spotted"
         },
         "mbbr:lobby_wallpaper_ornate": {
-            "textures": "textures/mbbr/blocks/deco/lobby_wallpaper_ornate"
+            "textures": "textures/mbbr/blocks/deco/lobby/wallpaper_ornate"
         }
     }
 }
