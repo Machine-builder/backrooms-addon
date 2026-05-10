@@ -1,7 +1,7 @@
 {
     "format_version": "1.16.100",
     "minecraft:texture_set": {
-        "color": "lobby_ceiling_light",
-        "metalness_emissive_roughness": "lobby_ceiling_light_mer"
+        "color": "ceiling_light",
+        "metalness_emissive_roughness": "ceiling_light_mer"
     }
 }

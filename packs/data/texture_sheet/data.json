@@ -59,7 +59,7 @@
           ]
         },
         {
-          "bounding_box": [59, 83, 16, 16],
+          "bounding_box": [59, 69, 16, 16],
           "save_as": "textures/mbbr/blocks/deco/lobby/old_carpet.png",
           "use_layers": ["Albedo"],
           "mutations": [
