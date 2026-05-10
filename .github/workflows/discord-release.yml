@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Send Discord notification
         env:
-          WEBHOOK_URL: ${{ secrets.BACKROOMS_DEV_FEED }}
+          WEBHOOK_URL: ${{ secrets.RELEASES_CHANNEL_WEBHOOK }}
           VERSION: ${{ github.event.release.tag_name }}
           NAME: ${{ github.event.release.name }}
           RELEASE_URL: ${{ github.event.release.html_url }}
@@ -24,7 +24,7 @@ jobs:
             "embeds": [
               {
                 "title": "Backrooms ${VERSION}",
-                "description": "**${NAME}** is now available!\n\n[View Release](${RELEASE_URL})\n[Download .mcaddon](${ASSET_URL})",
+                "description": "**${NAME}** is now available!\n\nTo download the .mcaddon or view the changelog, head over to the [Release Page](${RELEASE_URL})\nOr for a direct download, [Click Here](${ASSET_URL})",
                 "color": 11637263,
                 "url": "${RELEASE_URL}"
               }
