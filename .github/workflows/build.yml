@@ -28,10 +28,9 @@ jobs:
           path: "*.mcaddon"
 
       - name: Create GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
         uses: softprops/action-gh-release@v2
         with:
           files: "*.mcaddon"
           generate_release_notes: true
-            -X POST \
-            -d "$payload" \
-            "$WEBHOOK_URL"
