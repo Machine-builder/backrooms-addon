@@ -1,3 +1,5 @@
+import "./constraint-graph-generation/index";
+
 import {
   CommandPermissionLevel,
   CustomCommandOrigin,
