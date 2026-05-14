@@ -1,5 +1,6 @@
 import { system } from "@minecraft/server";
-import { Edge, Edges, place } from "./place";
+import { Edge } from "./tileGeneration";
+import { Edges, place } from "./place";
 import { chooseWeighted } from "../math";
 
 system.afterEvents.scriptEventReceive.subscribe((event) => {
@@ -14,7 +15,7 @@ system.afterEvents.scriptEventReceive.subscribe((event) => {
   system.run(() => {
     function randomEdge() {
       return chooseWeighted(
-        [Edge.Wall, Edge.Small, Edge.Open],
+        [Edge.Wall, Edge.Small, Edge.Large],
         [0.6, 0.35, 0.05],
       );
     }
